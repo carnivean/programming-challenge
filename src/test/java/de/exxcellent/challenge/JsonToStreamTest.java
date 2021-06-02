@@ -11,6 +11,7 @@ class JsonToStreamTest {
     @Test
     void loadDatasource() {
         JsonToStream jsonToStream = new JsonToStream();
+
         Stream<QnDData> s = jsonToStream.loadDatasource("weather.json", CSVToStream.mapWeatherData);
         long c = s.count();
         assertEquals(30, c, "Stream doesnt has the right number of elements for weather dataset");
