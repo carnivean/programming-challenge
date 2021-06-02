@@ -52,7 +52,9 @@ public class JsonToStream implements DataSourceToStream{
     @Override
     public Stream<QnDData> loadDatasource(String datasource, Function<Object, QnDData> mapperFunction) {
         ObjectMapper mapper = new ObjectMapper();
-        var filePath = System.getProperty("user.dir") + "\\src\\main\\resources\\de\\exxcellent\\challenge\\" + datasource;
+        var filePath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" +
+                File.separator + "resources" + File.separator + "de" +  File.separator + "exxcellent" +
+                File.separator + "challenge" + File.separator + datasource;
         File jsonFile = new File(filePath).getAbsoluteFile();
         List<FootballTuple> data = null;
         try {

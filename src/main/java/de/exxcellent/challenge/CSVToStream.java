@@ -1,5 +1,6 @@
 package de.exxcellent.challenge;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -9,7 +10,9 @@ import java.util.stream.Stream;
 public class CSVToStream implements DataSourceToStream {
     @Override
     public Stream<QnDData> loadDatasource(String datasource, Function<Object, QnDData> mapperFunction) {
-        var filePath = System.getProperty("user.dir") + "\\src\\main\\resources\\de\\exxcellent\\challenge\\" + datasource;
+        var filePath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" +
+                File.separator + "resources" + File.separator + "de" +  File.separator + "exxcellent" +
+                File.separator + "challenge" + File.separator + datasource;
         String result = "";
         try {
             return Files.lines(Paths.get(filePath)).skip(1).map(mapperFunction);

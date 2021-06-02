@@ -1,5 +1,6 @@
 package de.exxcellent.challenge;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -7,7 +8,9 @@ import java.util.function.Function;
 
 public class QuickAndDirty {
     public static String processCSVFile(String fileName, Function<String, QnDData> mapperFunction) {
-        var filePath = System.getProperty("user.dir") + "\\src\\main\\resources\\de\\exxcellent\\challenge\\" + fileName;
+        var filePath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" +
+                File.separator + "resources" + File.separator + "de" +  File.separator + "exxcellent" +
+                File.separator + "challenge" + File.separator + fileName;
         String result = "";
         try {
             result = Files.lines(Paths.get(filePath))
