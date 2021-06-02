@@ -15,11 +15,24 @@ public final class App {
     public static void main(String... args) {
 
         // Your preparation code …
+        MaxAbsDiffOfStream maxAbsDiffOfStream = new MaxAbsDiffOfStream();
 
-        String dayWithSmallestTempSpread =  QuickAndDirty.processCSVFile("weather.csv", QuickAndDirty.mapWeatherData);;     // Your day analysis function call …
+        CSVToStream csvToStream = new CSVToStream();
+        String dayWithSmallestTempSpread =    maxAbsDiffOfStream.doDataScience(csvToStream.loadDatasource(
+                "weather.csv", CSVToStream.mapWeatherData));  // Your day analysis function call …
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
 
-        String teamWithSmallestGoalSpread = QuickAndDirty.processCSVFile("football.csv", QuickAndDirty.mapFootballData);; // Your goal analysis function call …
+        String teamWithSmallestGoalSpread = maxAbsDiffOfStream.doDataScience(csvToStream.loadDatasource(
+                "football.csv", CSVToStream.mapFootballData));  // Your day analysis function call …
         System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
+
+        System.out.printf("%nSome additional stuff ;) %n");
+        InterestingDataScience ds = new InterestingDataScience();
+        String a =    ds.doDataScience(csvToStream.loadDatasource("weather.csv", CSVToStream.mapWeatherData));  // Your day analysis function call …
+        System.out.printf("Day with smallest temperature spread : %s%n", a);
+
+        String b = ds.doDataScience(csvToStream.loadDatasource("football.csv", CSVToStream.mapFootballData));  // Your day analysis function call …
+        System.out.printf("Team with smallest goal spread       : %s%n", b);
+
     }
 }

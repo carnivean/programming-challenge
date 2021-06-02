@@ -16,4 +16,9 @@ public class QnDData {
 
         this.absoluteDiff = Math.abs(max - min);
     }
+
+    @Override
+    public String toString() {
+        return "Biggest absolute difference was " + absoluteDiff + " by " + result + ".";
+    }
 }
